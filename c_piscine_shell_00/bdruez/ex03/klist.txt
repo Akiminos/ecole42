@@ -1,5 +1,0 @@
-Credentials cache: API:648BA958-01AD-4826-A846-0C92D8933719
-        Principal: bdruez@42.FR
-
-  Issued                Expires               Principal
-Aug 26 16:47:14 2019  Sep  2 16:47:03 2019  krbtgt/42.FR@42.FR
