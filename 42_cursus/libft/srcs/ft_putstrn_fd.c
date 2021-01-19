@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putstrn_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 19:22:08 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/13 19:22:09 by bdruez           ###   ########.fr       */
+/*   Created: 2020/01/10 16:03:00 by bdruez            #+#    #+#             */
+/*   Updated: 2020/01/21 15:30:39 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_putstrn_fd(char *s, int max, int fd)
 {
-	t_list *node;
+	int count;
 
-	node = NULL;
-	if (!(node = malloc(sizeof(*node))))
-		return (0);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	count = 0;
+	if (s)
+	{
+		while (s[count] && count < max)
+		{
+			ft_putchar_fd(s[count], fd);
+			count++;
+		}
+	}
 }

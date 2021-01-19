@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	iter;
 
 	iter = 0;
-	if (s == 0)
+	if (s == 0 || (*f) == 0)
 		return (0);
 	if (!(res = ft_calloc(ft_strlen(s) + 1, sizeof(*res))))
 		return (0);

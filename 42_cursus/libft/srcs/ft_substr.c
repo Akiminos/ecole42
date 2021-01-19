@@ -20,10 +20,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	iter = 0;
 	if (s == 0)
 		return (0);
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
 	if ((res = ft_calloc(sizeof(*res), len + 1)) == 0)
 		return (0);
-	if (start >= (unsigned int)ft_strlen(s))
-		return (res);
 	while (s[iter] && iter < len)
 	{
 		res[iter] = s[start];

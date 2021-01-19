@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 19:42:35 by bdruez            #+#    #+#             */
-/*   Updated: 2020/03/10 13:18:47 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/01/19 11:43:46 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ static int	get_nb_printed(t_data data, char *str)
 
 static int	print_str_right(t_data data, char *str)
 {
-	int	len;
 	int	count;
 	int nb_printed;
 
-	len = ft_strlen(str);
 	count = data.min_width;
 	nb_printed = get_nb_printed(data, str);
 	while (count > nb_printed)
@@ -50,11 +48,9 @@ static int	print_str_right(t_data data, char *str)
 
 static int	print_str_left(t_data data, char *str)
 {
-	int	len;
 	int	count;
 	int nb_printed;
 
-	len = ft_strlen(str);
 	count = data.min_width;
 	nb_printed = get_nb_printed(data, str);
 	if (data.has_dot)

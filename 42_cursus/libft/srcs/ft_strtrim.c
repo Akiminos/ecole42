@@ -62,9 +62,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	iter = 0;
 	iter_res = 0;
 	while (is_in_set(s1[iter], set) && iter < ft_strlen(s1))
-	{
 		iter++;
-	}
 	while (iter_res < trimmed_len)
 	{
 		res[iter_res] = s1[iter];

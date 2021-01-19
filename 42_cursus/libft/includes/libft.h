@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:52:38 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/14 10:51:13 by bdruez           ###   ########.fr       */
+/*   Updated: 2020/01/21 17:11:48 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
-								size_t len);
+					size_t len);
 int					ft_isspace(int c);
 int					ft_atoi(const char *str);
 void				*ft_memset(void *b, int c, size_t len);
@@ -58,8 +58,12 @@ char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
+void				ft_putstrn_fd(char *s, int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_putnbr_uint_fd(unsigned int n, int fd);
+void				ft_putnbr_hex_fd(unsigned long n, int is_upper, int fd);
+int					ft_twos_complement(int nb);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -70,5 +74,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+int					ft_min(int nb1, int nb2);
+int					ft_max(int nb1, int nb2);
 
 #endif
