@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/04 10:29:39 by bdruez            #+#    #+#              #
-#    Updated: 2021/01/19 13:27:10 by bdruez           ###   ########.fr        #
+#    Updated: 2021/01/19 16:59:17 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@
 ### ft_printf
 D_SRCS			= ./
 D_SRCS_TESTS	= $(D_SRCS)tests/
-D_INCS		= ./
+D_INCS			= ./
 
 ### libft
 D_LFT			= ./libft/
-D_LFT_SRCS		= $(D_LFT)srcs/
-D_LFT_INCS	= $(D_LFT)includes/
+D_LFT_INCS		= ./libft/includes/
+D_LFT_SRCS		= ./libft/srcs/
 
 # ---------------------------------------------------------------------------- #
 # ====> FILES                                                                  #
@@ -36,52 +36,28 @@ SRCS			= $(D_SRCS)ft_printf.c $(D_SRCS)ft_printf_utils.c \
 				  $(D_SRCS)display_wrong.c $(D_SRCS)display_id_printing.c \
 				  $(D_SRCS)display_u_printing.c $(D_SRCS)display_x_printing.c
 
-LFT_SRCS		= $(D_LFT_SRCS)ft_strlen.c $(D_LFT_SRCS)ft_isalpha.c \
-				  $(D_LFT_SRCS)ft_isdigit.c $(D_LFT_SRCS)ft_isalnum.c \
-				  $(D_LFT_SRCS)ft_isascii.c $(D_LFT_SRCS)ft_isprint.c \
-				  $(D_LFT_SRCS)ft_toupper.c $(D_LFT_SRCS)ft_tolower.c \
-				  $(D_LFT_SRCS)ft_strchr.c $(D_LFT_SRCS)ft_strrchr.c \
-				  $(D_LFT_SRCS)ft_strncmp.c $(D_LFT_SRCS)ft_strlcpy.c \
-				  $(D_LFT_SRCS)ft_strlcat.c $(D_LFT_SRCS)ft_strnstr.c \
-				  $(D_LFT_SRCS)ft_isspace.c $(D_LFT_SRCS)ft_atoi.c \
-				  $(D_LFT_SRCS)ft_memset.c $(D_LFT_SRCS)ft_bzero.c \
-				  $(D_LFT_SRCS)ft_memcpy.c $(D_LFT_SRCS)ft_memccpy.c \
-				  $(D_LFT_SRCS)ft_memmove.c $(D_LFT_SRCS)ft_memchr.c \
-				  $(D_LFT_SRCS)ft_memcmp.c $(D_LFT_SRCS)ft_strdup.c \
-				  $(D_LFT_SRCS)ft_calloc.c $(D_LFT_SRCS)ft_substr.c \
-				  $(D_LFT_SRCS)ft_strjoin.c $(D_LFT_SRCS)ft_strtrim.c \
-				  $(D_LFT_SRCS)ft_itoa.c $(D_LFT_SRCS)ft_strndup.c \
-				  $(D_LFT_SRCS)ft_split.c $(D_LFT_SRCS)ft_strmapi.c \
-				  $(D_LFT_SRCS)ft_putchar_fd.c $(D_LFT_SRCS)ft_putstr_fd.c \
-				  $(D_LFT_SRCS)ft_putendl_fd.c $(D_LFT_SRCS)ft_putnbr_fd.c \
-				  $(D_LFT_SRCS)ft_putstrn_fd.c $(D_LFT_SRCS)ft_putnbr_hex_fd.c \
-				  $(D_LFT_SRCS)ft_twos_complement.c \
-				  $(D_LFT_SRCS)ft_lstnew.c $(D_LFT_SRCS)ft_lstadd_front.c \
-				  $(D_LFT_SRCS)ft_lstsize.c $(D_LFT_SRCS)ft_lstlast.c \
-				  $(D_LFT_SRCS)ft_lstadd_back.c $(D_LFT_SRCS)ft_lstdelone.c \
-				  $(D_LFT_SRCS)ft_lstiter.c $(D_LFT_SRCS)ft_lstclear.c \
-				  $(D_LFT_SRCS)ft_lstmap.c $(D_LFT_SRCS)ft_putnbr_uint_fd.c \
-				  $(D_LFT_SRCS)ft_min.c $(D_LFT_SRCS)ft_max.c
-
 SRCS_TESTS		= $(D_SRCS_TESTS)test_ft_get_data_info.c
+
+LFT				= $(D_LFT)libft.a
 
 MAIN			= $(D_SRCS)main.c
 MAIN_TESTS		= $(D_SRCS_TESTS)test_main.c
 
+HEAD			= $(D_INCS)ft_printf.h
+
 OBJS			= $(SRCS:.c=.o)
-OBJS_LIBFT		= $(LFT_SRCS:.c=.o)
 OBJS_TESTS		= $(SRCS_TESTS:.c=.o)
 
 # ---------------------------------------------------------------------------- #
-# ====> FLAGS                                                                  #
+# ====> FLAGS AND COMMANDS                                                     #
 # ---------------------------------------------------------------------------- #
 
-INCS		= -I$(D_INCS) -I$(D_LFT_INCS)
+INCS			= -I$(D_INCS) -I$(D_LFT_INCS)
 
-CC				= gcc
+CC				= clang
 CFLAGS			= -Wall -Wextra -Werror
 FSANITIZE		= -g3 -fsanitize=address
-LIB				= ar -rvs
+LIB				= ar -rcs
 LIBFLAGS		= -L. -lftprintf
 RM				= rm -f
 RMR				= rm -rf # For fsanitize .dSYM folder cleaning
@@ -105,15 +81,13 @@ BONUS			= bonus
 # ---------------------------------------------------------------------------- #
 
 ### Compile rule for .c files
-%.o	: %.c	Makefile
+%.o	: %.c			Makefile
 					$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
-#.c.o:
-#					$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INCS)
-
 ### Static library compilation
-$(NAME):			$(OBJS) $(OBJS_LIBFT)
-					$(LIB) $(NAME) $(OBJS) $(OBJS_LIBFT)
+$(NAME):			$(OBJS) $(HEAD)
+					@make -C $(D_LFT)
+					$(LIB) $(NAME) $(OBJS) $(D_LFT_SRCS)*.o
 
 ### Standard binaries compilation
 $(BIN):				$(NAME) $(MAIN)
@@ -137,11 +111,13 @@ all:				$(NAME)
 
 clean:
 					$(RM) $(OBJS) $(OBJS_LIBFT) $(OBJS_TESTS)
+					@make clean -C $(D_LFT)
 
 fclean:				clean
 					$(RM) $(NAME) $(NAME_FSANITIZE) $(BIN) $(BIN_FSANITIZE) \
 					$(TESTS) $(TESTS_FSANITIZE)
 					$(RMR) $(NAME_FSANITIZE).dSYM $(TESTS_FSANITIZE).dSYM 
+					@make fclean -C $(D_LFT)
 
 re:					fclean all
 

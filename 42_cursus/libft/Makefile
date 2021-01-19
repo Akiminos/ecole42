@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/04 10:38:33 by bdruez            #+#    #+#              #
-#    Updated: 2021/01/19 14:07:27 by bdruez           ###   ########.fr        #
+#    Updated: 2021/01/19 17:02:08 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRCS		= $(D_SRCS)ft_strlen.c $(D_SRCS)ft_isalpha.c $(D_SRCS)ft_isdigit.c \
 			  $(D_SRCS)ft_lstadd_back.c $(D_SRCS)ft_lstdelone.c \
 			  $(D_SRCS)ft_lstiter.c $(D_SRCS)ft_lstclear.c \
 			  $(D_SRCS)ft_lstmap.c $(D_SRCS)ft_min.c $(D_SRCS)ft_max.c \
-			  $(D_SRCS)ft_putnbr_uint_fd.c
+			  $(D_SRCS)ft_putnbr_uint_fd.c $(D_SRCS)ft_putstrn_fd.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -48,13 +48,15 @@ OBJS		= $(SRCS:.c=.o)
 # ====> FLAGS                                                                  #
 # ---------------------------------------------------------------------------- #
 
-INCS	= -I$(D_INCS)
+INCS		= -I$(D_INCS)
 
-CC			= gcc
-RM			= rm -f
-LIB			= ar -rcs
+CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
+
+LIB			= ar -rcs
 LIBFLAGS	= -L. -lft
+
+RM			= rm -f
 
 # ---------------------------------------------------------------------------- #
 # ====> BINARY NAMES                                                           #
