@@ -1,70 +1,85 @@
-F_SRCS		= ./
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/12/04 10:38:33 by bdruez            #+#    #+#              #
+#    Updated: 2021/01/19 13:41:09 by bdruez           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-F_INCLUDES	= ./
+# ---------------------------------------------------------------------------- #
+# ====> PATHS                                                                  #
+# ---------------------------------------------------------------------------- #
 
-SRCS		= $(F_SRCS)ft_strlen.c $(F_SRCS)ft_isalpha.c $(F_SRCS)ft_isdigit.c \
-			  $(F_SRCS)ft_isalnum.c $(F_SRCS)ft_isascii.c $(F_SRCS)ft_isprint.c\
-			  $(F_SRCS)ft_toupper.c $(F_SRCS)ft_tolower.c $(F_SRCS)ft_strchr.c \
-			  $(F_SRCS)ft_strrchr.c $(F_SRCS)ft_strncmp.c $(F_SRCS)ft_strlcpy.c\
-			  $(F_SRCS)ft_strlcat.c $(F_SRCS)ft_strnstr.c $(F_SRCS)ft_isspace.c\
-			  $(F_SRCS)ft_atoi.c $(F_SRCS)ft_memset.c $(F_SRCS)ft_bzero.c \
-			  $(F_SRCS)ft_memcpy.c $(F_SRCS)ft_memccpy.c $(F_SRCS)ft_memmove.c \
-			  $(F_SRCS)ft_memchr.c $(F_SRCS)ft_memcmp.c $(F_SRCS)ft_strdup.c \
-			  $(F_SRCS)ft_calloc.c $(F_SRCS)ft_substr.c $(F_SRCS)ft_strjoin.c \
-			  $(F_SRCS)ft_strtrim.c $(F_SRCS)ft_itoa.c $(F_SRCS)ft_strndup.c \
-			  $(F_SRCS)ft_split.c $(F_SRCS)ft_strmapi.c \
-			  $(F_SRCS)ft_putchar_fd.c $(F_SRCS)ft_putstr_fd.c \
-			  $(F_SRCS)ft_putendl_fd.c $(F_SRCS)ft_putnbr_fd.c
+D_SRCS	= ./srcs/
+D_INCS	= ./includes/
 
-SRCS_BONUS	= $(F_SRCS)ft_lstnew_bonus.c $(F_SRCS)ft_lstadd_front_bonus.c \
-			  $(F_SRCS)ft_lstsize_bonus.c $(F_SRCS)ft_lstlast_bonus.c \
-			  $(F_SRCS)ft_lstadd_back_bonus.c $(F_SRCS)ft_lstdelone_bonus.c \
-			  $(F_SRCS)ft_lstiter_bonus.c $(F_SRCS)ft_lstclear_bonus.c \
-			  $(F_SRCS)ft_lstmap_bonus.c
+# ---------------------------------------------------------------------------- #
+# ====> FILES                                                                  #
+# ---------------------------------------------------------------------------- #
 
-INCLUDES	= -I$(F_INCLUDES)
+SRCS		= $(D_SRCS)ft_strlen.c $(D_SRCS)ft_isalpha.c $(D_SRCS)ft_isdigit.c \
+			  $(D_SRCS)ft_isalnum.c $(D_SRCS)ft_isascii.c $(D_SRCS)ft_isprint.c\
+			  $(D_SRCS)ft_toupper.c $(D_SRCS)ft_tolower.c $(D_SRCS)ft_strchr.c \
+			  $(D_SRCS)ft_strrchr.c $(D_SRCS)ft_strncmp.c $(D_SRCS)ft_strlcpy.c\
+			  $(D_SRCS)ft_strlcat.c $(D_SRCS)ft_strnstr.c $(D_SRCS)ft_isspace.c\
+			  $(D_SRCS)ft_atoi.c $(D_SRCS)ft_memset.c $(D_SRCS)ft_bzero.c \
+			  $(D_SRCS)ft_memcpy.c $(D_SRCS)ft_memccpy.c $(D_SRCS)ft_memmove.c \
+			  $(D_SRCS)ft_memchr.c $(D_SRCS)ft_memcmp.c $(D_SRCS)ft_strdup.c \
+			  $(D_SRCS)ft_calloc.c $(D_SRCS)ft_substr.c $(D_SRCS)ft_strjoin.c \
+			  $(D_SRCS)ft_strtrim.c $(D_SRCS)ft_itoa.c $(D_SRCS)ft_strndup.c \
+			  $(D_SRCS)ft_split.c $(D_SRCS)ft_strmapi.c \
+			  $(D_SRCS)ft_putchar_fd.c $(D_SRCS)ft_putstr_fd.c \
+			  $(D_SRCS)ft_putendl_fd.c $(D_SRCS)ft_putnbr_fd.c \
+			  $(D_SRCS)ft_putstr_fd.c $(D_SRCS)ft_putnbr_hex_fd.c \
+			  $(D_SRCS)ft_lstnew.c $(D_SRCS)ft_lstadd_front.c \
+			  $(D_SRCS)ft_lstsize.c $(D_SRCS)ft_lstlast.c \
+			  $(D_SRCS)ft_lstadd_back.c $(D_SRCS)ft_lstdelone.c \
+			  $(D_SRCS)ft_lstiter.c $(D_SRCS)ft_lstclear.c \
+			  $(D_SRCS)ft_lstmap.c $(D_SRCS)ft_min.c $(D_SRCS)ft_max.c \
+			  $(D_SRCS)ft_putnbr_uint_fd.c
 
 OBJS		= $(SRCS:.c=.o)
 
-OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
+# ---------------------------------------------------------------------------- #
+# ====> FLAGS                                                                  #
+# ---------------------------------------------------------------------------- #
+
+INCS	= -I$(D_INCS)
 
 CC			= gcc
 RM			= rm -f
 LIB			= ar -rcs
-
 CFLAGS		= -Wall -Wextra -Werror
 LIBFLAGS	= -L. -lft
 
+# ---------------------------------------------------------------------------- #
+# ====> BINARY NAMES                                                           #
+# ---------------------------------------------------------------------------- #
+
 NAME		= libft.a
 
-BIN			= libft
+# ---------------------------------------------------------------------------- #
+# ====> FUNCTIONS                                                              #
+# ---------------------------------------------------------------------------- #
 
-BONUS		= bonus
-
-BIN_BONUS	= libft_bonus
-
-.c.o:
-				$(CC) $(CFLAGS) -c $<  -o $(<:.c=.o) $(INCLUDES)
+### Compile rule for .c files
+%.o	: %.c	Makefile
+				$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 $(NAME):		$(OBJS)
 				$(LIB) $(NAME) $(OBJS)
 
-$(BIN):			$(NAME) main.c
-				$(CC) $(CFlAGS) main.c -o $(BIN) $(LIBFLAGS) $(INCLUDES)
-
-$(BONUS):		$(OBJS) $(OBJS_BONUS)
-				$(LIB) $(NAME) $(OBJS) $(OBJS_BONUS)
-
-$(BIN_BONUS):	$(BONUS) main.c
-				$(CC) $(CFLAGS) main.c -o $(BIN_BONUS) $(LIBFLAGS) $(INCLUDES)
-
 all:			$(NAME)
 
 clean:
-				$(RM) $(OBJS) $(OBJS_BONUS)
+				$(RM) $(OBJS)
 
 fclean:			clean
-				$(RM) $(NAME) $(BIN) $(BIN_BONUS)
+				$(RM) $(NAME) $(BIN)
 
 re:				fclean all
 
