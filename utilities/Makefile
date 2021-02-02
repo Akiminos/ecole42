@@ -1,54 +1,106 @@
-DIR_SRCS        = ./srcs/
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/12/04 10:38:33 by bdruez            #+#    #+#              #
+#    Updated: 2021/02/02 21:38:18 by bdruez           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-DIR_INCLUDES    = ./includes/
+# ---------------------------------------------------------------------------- #
+# ====> PATHS                                                                  #
+# ---------------------------------------------------------------------------- #
 
-DIR_LIB        = ./libft/
+PATH_SRCS		= ./srcs/
+PATH_INCS		= ./includes/ ./libft/includes/
+PATH_OBJS		= ./objs/
+PATH_LFT		= ./libft/
 
-LIBFT        = $(DIR_LIB)libft.a
+PATH_TEST		= ./tests/
+TEST_PREF		= test_
 
-SRCS        = $(DIR_SRCS)main.c $(DIR_SRCS)ft_cd.c $(DIR_SRCS)cmd_utils.c $(DIR_SRCS)env_utils.c $(DIR_SRCS)exec.c \
-            $(DIR_SRCS)ft_pwd.c $(DIR_SRCS)ft_echo.c $(DIR_SRCS)free_utils.c $(DIR_SRCS)ft_export.c $(DIR_SRCS)export_unset_utils.c \
-            $(DIR_SRCS)export_utils.c $(DIR_SRCS)ft_unset.c $(DIR_SRCS)ft_env.c $(DIR_SRCS)ft_exit.c $(DIR_SRCS)parsing.c $(DIR_SRCS)utils.c $(DIR_SRCS)tokens.c $(DIR_SRCS)rm.c $(DIR_SRCS)split_semi.c
+# ---------------------------------------------------------------------------- #
+# ====> FILES                                                                  #
+# ---------------------------------------------------------------------------- #
 
+F_SRCS		= main.c input.c parser.c t_data.c
 
+# ---------------------------------------------------------------------------- #
+# ====> VARIABLES                                                              #
+# ---------------------------------------------------------------------------- #
 
-HEADER        = $(DIR_INCLUDES)
+SRCS		= $(addprefix $(PATH_SRCS), $(F_SRCS))
+OBJS		= $(addprefix $(PATH_OBJS), $(F_SRCS:.c=.o))
+TEST		= $(addprefix $(PATH_TEST)$(
 
-OBJS        = $(SRCS:.c=.o)
+# ---------------------------------------------------------------------------- #
+# ====> COMMANDS AND FLAGS                                                     #
+# ---------------------------------------------------------------------------- #
 
-INCLUDES    = -I$(HEADER)
+INCS		= $(addprefix -I, $(PATH_INCS))
 
-NAME        = minishell
+CC			= clang
+CFLAGS		= -Wall -Wextra -Werror
 
-CC        = clang
-RM        = rm -f
-CFLAGS        = -Wall -Werror -Wextra
-FSAN        = -g3 -fsanitize=address
+RM			= rm -f
+RMR			= rm -rf
 
-$(NAME):    $(OBJS) $(DIR_INCLUDES).h
-            @make bonus -C $(DIR_LIB)
-            @cp $(LIBFT) ./$(NAME)
-            $(CC) $(CFLAGS) $(DIR_SRCS).o -o $(NAME) $(LIBFT)
+LFTFLAGS	= -L$(PATH_LFT) -lft
 
-fsan:        $(OBJS) $(DIR_INCLUDES).h
-            @make bonus -C $(DIR_LIB)
-            @cp $(LIBFT) ./$(NAME)
-            $(CC) $(CFLAGS) $(FSAN) $(DIR_SRCS).o -o $(NAME) $(LIBFT)
+FSAN		= -g3 -fsanitize=address
 
-leaks:        $(NAME)
-        valgrind --tool=memcheck --leak-check=full --leak-resolution=high --show-reachable=yes ./$(NAME)
+# ---------------------------------------------------------------------------- #
+# ====> BINARY NAMES                                                           #
+# ---------------------------------------------------------------------------- #
 
+NAME		= cube3d
 
-all:        $(NAME)
+# ---------------------------------------------------------------------------- #
+# ====> FUNCTIONS                                                              #
+# ---------------------------------------------------------------------------- #
+
+### Compile rule for .c files
+$(PATH_OBJS)%.o: $(PATH_SRCS)%.c Makefile
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+
+### "make" default rule call
+$(NAME): $(PATH_OBJS) $(OBJS)
+	@make -C $(PATH_LFT)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LFTFLAGS)
+
+### Objects folder generation rule
+$(PATH_OBJS):
+	@mkdir $(PATH_OBJS)
+
+### FSanitize compile rule, will need fclean afterwards
+fsan: $(PATH_OBJS) $(OBJS)
+	@make -C $(PATH_LFT)
+	$(CC) $(CFLAGS) $(FSAN) $(OBJS) -o $(NAME) $(LFTFLAGS)
+
+### Leaks verification through valgrind
+leaks: $(NAME)
+	valgrind --tool=memcheck --leak-check=full --leak-resolution=high \
+	--show-reachable=yes --track-origins=yes ./$(NAME)
+
+### Standard rules
+all: $(NAME)
 
 clean:
-            $(RM) $(OBJS)
-            @make clean -C ./libft/
+	$(RMR) $(PATH_OBJS)
+	@make clean -C $(PATH_LFT)
 
-fclean:        clean
-            $(RM) $(NAME)
-            @make fclean -C ./libft/
+fclean: clean
+	$(RM) $(NAME) $(BIN)
+	@make fclean -C $(PATH_LFT)
 
-re:            fclean all
+re: fclean all
 
-.PHONY:        all clean fclean re
+# ---------------------------------------------------------------------------- #
+# ====> PHONY DEFINITION                                                       #
+# ---------------------------------------------------------------------------- #
+
+.PHONY: all clean fclean re
+
