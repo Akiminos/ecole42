@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/04 10:38:33 by bdruez            #+#    #+#              #
-#    Updated: 2021/01/26 18:03:48 by bdruez           ###   ########.fr        #
+#    Updated: 2021/02/17 16:24:01 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,22 +15,30 @@
 # ---------------------------------------------------------------------------- #
 
 PATH_SRCS		= ./srcs/
-PATH_INCS		= ./includes/ ./libft/includes/
+PATH_INCS		= ./includes/ ./libft/includes/ ./tests/includes/
 PATH_OBJS		= ./objs/
 PATH_LFT		= ./libft/
+
+PATH_TEST		= ./tests/
+TEST_PREFIX		= test_
 
 # ---------------------------------------------------------------------------- #
 # ====> FILES                                                                  #
 # ---------------------------------------------------------------------------- #
 
-F_SRCS		= main.c
+F_SRCS		= input.c parser.c t_data.c t_data_utils.c parser_utils.c
+
+F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 
 # ---------------------------------------------------------------------------- #
 # ====> VARIABLES                                                              #
 # ---------------------------------------------------------------------------- #
 
-SRCS		= $(addprefix $(PATH_SRCS), $(F_SRCS))
 OBJS		= $(addprefix $(PATH_OBJS), $(F_SRCS:.c=.o))
+OBJS_TEST	= $(addprefix $(PATH_OBJS), $(F_TEST:.c=.o))
+
+MAIN_BIN	= $(PATH_OBJS)main.o
+T_MAIN_BIN	= $(PATH_OBJS)t_main.o
 
 # ---------------------------------------------------------------------------- #
 # ====> COMMANDS AND FLAGS                                                     #
@@ -45,6 +53,7 @@ RM			= rm -f
 RMR			= rm -rf
 
 LFTFLAGS	= -L$(PATH_LFT) -lft
+LTESTFLAGS	= -L$(PATH_TEST) -ltest
 
 FSAN		= -g3 -fsanitize=address
 
@@ -58,28 +67,52 @@ NAME		= cube3d
 # ====> FUNCTIONS                                                              #
 # ---------------------------------------------------------------------------- #
 
-### Compile rule for .c files
+### Compile rule for .c files in srcs
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
-### "make" default rule call
-$(NAME): $(PATH_OBJS) $(OBJS)
-	@make -C $(PATH_LFT)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LFTFLAGS)
+### Compile rule for .c files in tests
+$(PATH_OBJS)%.o: $(PATH_TEST)%.c Makefile
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
-### objects folder generation rule
+### "make" default rule call
+$(NAME): $(PATH_OBJS) $(OBJS) $(MAIN_BIN)
+	@make -C $(PATH_LFT)
+	$(CC) $(CFLAGS) $(OBJS) $(MAIN_BIN) -o $(NAME) $(LFTFLAGS)
+
+### Objects folder generation rule
 $(PATH_OBJS):
 	@mkdir $(PATH_OBJS)
 
+### FSanitize compile rule, will need fclean afterwards
+fsan: $(PATH_OBJS) $(OBJS) $(MAIN_BIN)
+	@make -C $(PATH_LFT)
+	$(CC) $(CFLAGS) $(FSAN) $(OBJS) $(MAIN_BIN) -o $(NAME) $(LFTFLAGS)
+
+### Leaks verification through valgrind
+leaks: $(NAME)
+	valgrind --tool=memcheck --leak-check=full --leak-resolution=high \
+	--show-reachable=yes --track-origins=yes ./$(NAME)
+
+### Test compilation rule
+test: $(PATH_OBJS) $(OBJS) $(OBJS_TEST) $(T_MAIN_BIN)
+	@make -C $(PATH_LFT)
+	@make -C $(PATH_TEST)
+	$(CC) $(CFLAGS) $(OBJS) $(OBJS_TEST) $(T_MAIN_BIN) -o $(NAME) $(LFTFLAGS) \
+	$(LTESTFLAGS)
+
+### Standard rules
 all: $(NAME)
 
 clean:
 	$(RMR) $(PATH_OBJS)
 	@make clean -C $(PATH_LFT)
+	@make clean -C $(PATH_TEST)
 
 fclean: clean
 	$(RM) $(NAME) $(BIN)
 	@make fclean -C $(PATH_LFT)
+	@make fclean -C $(PATH_TEST)
 
 re: fclean all
 
@@ -87,5 +120,5 @@ re: fclean all
 # ====> PHONY DEFINITION                                                       #
 # ---------------------------------------------------------------------------- #
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
 

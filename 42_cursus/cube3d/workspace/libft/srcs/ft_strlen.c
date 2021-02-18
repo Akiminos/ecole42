@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 09:54:28 by bdruez            #+#    #+#             */
-/*   Updated: 2021/01/25 18:36:40 by bdruez           ###   ########.fr       */
+/*   Created: 2019/11/04 12:31:19 by bdruez            #+#    #+#             */
+/*   Updated: 2021/01/28 21:40:30 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
-# include "libft.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t len;
 
-#endif
+	if (s == NULL || s[0] == '\0')
+		return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
