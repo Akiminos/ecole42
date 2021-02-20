@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:02:19 by bdruez            #+#    #+#             */
-/*   Updated: 2021/02/17 17:53:04 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/02/18 13:38:14 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void	test_new_data_01(void);
 **	test_t_data_utils.c
 */
 void	test_get_resolution_number_01(void);
+void	test_get_resolution_number_02(void);
 
 #endif

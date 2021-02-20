@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:34:48 by bdruez            #+#    #+#             */
-/*   Updated: 2021/02/17 18:06:08 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/02/18 13:37:16 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	test_t_data_utils(void)
 	printf("START : t_data_utils.c : get_resolution_number()\n");
 	c_reset();
 	test_get_resolution_number_01();
+	test_get_resolution_number_02();
 	c_yellow();
 	printf("END : t_data_utils.c : get_resolution_number()\n");
 	c_reset();

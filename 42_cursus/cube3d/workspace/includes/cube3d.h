@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 09:54:28 by bdruez            #+#    #+#             */
-/*   Updated: 2021/02/17 17:57:44 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/02/18 13:53:08 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,6 @@ void			add_path(t_data *data, char *line, int id);
 **	t_data_utils.c
 */
 int				add_resolution(t_data *data, char **line);
-int				get_resolution_number(char *line, char **res, int start);
+int				get_resolution_number(char *line, char **num, int *start);
 
 #endif
