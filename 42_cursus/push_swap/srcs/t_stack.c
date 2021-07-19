@@ -6,46 +6,94 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:38:52 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/01 18:35:06 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/07/05 15:07:23 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack(int value)
+t_stack	*init_stack(void)
 {
-	t_stack	*node;
+	t_stack *stack;
 
-	node = NULL;
-	node = malloc(sizeof(*node));
-	if (!node)
-		return (0);
-	node->value = value;
-	node->prev = NULL;
-	node->next = NULL;
-	return (node);
+	stack = malloc(sizeof(*stack));
+	if (!stack)
+		return (NULL);
+	stack->head = NULL;
+	stack->tail = NULL;
+	stack->size = 0;
+	return (stack);
 }
 
-int		stack_size(t_stack *ele)
+void	add_ele_head(t_stack *stack, t_stack_ele *ele)
 {
-	int	res;
-
-	res = 0;
-	while (ele)
+	if (stack->size == 0)
 	{
-		ele = ele->next;
-		res++;
+		stack->head = ele;
+		stack->tail = ele;
+		(stack->size)++;
 	}
-	return (res);
+	else
+	{
+		ele->next = stack->head;
+		stack->head->prev = ele;
+		stack->head = ele;
+		(stack->size)++;
+	}
 }
 
-void	rotate(t_stack *head)
+void	add_ele_tail(t_stack *stack, t_stack_ele *ele)
 {
-	(void)head;
+	if (stack->size == 0)
+	{
+		stack->head = ele;
+		stack->tail = ele;
+		(stack->size)++;
+	}
+	else
+	{
+		ele->prev = stack->tail;
+		stack->tail->next = ele;
+		stack->tail = ele;
+		(stack->size)++;
+	}
 }
 
-void	r_rotate(t_stack *tail)
+void	print_stack(t_stack *stack)
 {
-	(void)tail;
+	int			iter;
+	t_stack_ele	*tmp;
+
+	iter = 0;
+	tmp = stack->head;
+	while (iter < stack->size)
+	{
+		printf("%d\n", tmp->value);
+		tmp = tmp->next;
+		iter++;
+	}
 }
 
+void	free_stack(t_stack *stack)
+{
+	int			iter;
+	t_stack_ele	*tmp_curr;
+	t_stack_ele	*tmp_prev;
+
+	iter = 0;
+	tmp_curr = stack->tail;
+	tmp_prev = NULL;
+	while (iter < stack->size)
+	{
+		tmp_prev = tmp_curr->prev;
+		free_stack_ele(tmp_curr);
+		tmp_curr = tmp_prev;
+		iter++;
+	}
+	tmp_curr = NULL;
+	tmp_prev = NULL;
+	stack->head = NULL;
+	stack->tail = NULL;
+	free(stack);
+	stack = NULL;
+}

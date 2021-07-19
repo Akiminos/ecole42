@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   t_stack_ele.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 15:24:07 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/19 13:03:20 by bdruez           ###   ########.fr       */
+/*   Created: 2021/07/02 15:54:11 by bdruez            #+#    #+#             */
+/*   Updated: 2021/07/05 14:10:24 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+t_stack_ele	*new_stack_ele(int value)
 {
-	int		status;
-	t_stack	*stack;
+	t_stack_ele	*node;
 
-	status = TRUE;
-	stack = NULL;
-	if (argc <= 1 || argv == NULL)
-		free_and_exit_message(NULL, NULL, "Not enough arguments");
-	else
+	node = NULL;
+	node = malloc(sizeof(*node));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->prev = NULL;
+	node->next = NULL;
+	return (node);
+}
+
+void		free_stack_ele(t_stack_ele *stack_ele)
+{
+	if (stack_ele != NULL)
 	{
-		stack = create_stack_from_input(argc, argv, &status);
-		if (status == FALSE)
-		{
-			free_and_exit_message(stack, NULL, "Parsing error");
-		}
-		else
-		{
-			print_stack(stack);
-			check_doublons(stack);
-			free_stack(stack);
-		}
+		stack_ele->value = 0;
+		stack_ele->prev = NULL;
+		stack_ele->next = NULL;
+		free(stack_ele);
+		stack_ele = NULL;
 	}
-	return (0);
 }

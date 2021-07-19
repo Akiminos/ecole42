@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/07/01 17:57:22 by bdruez           ###   ########.fr        #
+#    Updated: 2021/07/19 11:24:34 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,11 @@ TEST_PREFIX		= test_
 # ---------------------------------------------------------------------------- #
 
 F_SRCS		= parser.c \
-			  t_stack.c
+			  t_stack.c \
+			  t_stack_action.c \
+			  t_stack_ele.c \
+			  exit_management.c \
+			  doublons.c \
 
 F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 
@@ -112,6 +116,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(BIN)
+	$(RMR) $(NAME).dSYM
 	@make fclean -C $(PATH_LFT)
 #	@make fclean -C $(PATH_TEST)
 
