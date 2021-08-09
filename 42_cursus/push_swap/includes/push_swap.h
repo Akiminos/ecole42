@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:22:36 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/19 11:42:55 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/08/06 19:33:09 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ void		add_ele_head(t_stack *stack, t_stack_ele *ele);
 void		add_ele_tail(t_stack *stack, t_stack_ele *ele);
 void		print_stack(t_stack *stack);
 void		free_stack(t_stack *stack);
+
+/*
+**	t_stack_utils.c
+*/
+int			get_lowest_ele_pos(t_stack *stack);
 
 /*
 **	t_stack_action.c

@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 15:24:07 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/19 13:03:20 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/08/06 19:33:52 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		main(int argc, char **argv)
 		{
 			print_stack(stack);
 			check_doublons(stack);
+			printf("lower element position : '%d'\n",
+				get_lowest_ele_pos(stack));
 			free_stack(stack);
 		}
 	}
