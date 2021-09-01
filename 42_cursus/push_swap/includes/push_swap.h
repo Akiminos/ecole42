@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:22:36 by bdruez            #+#    #+#             */
-/*   Updated: 2021/08/06 19:33:09 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/01 20:42:25 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,19 @@ typedef	struct	s_stack
 */
 
 /*
+**	chunk.c
+*/
+int			get_chunk_max(t_stack *primary, int size);
+int			find_value_just_above(t_stack *stack, int current);
+int			find_lowest_weight_pos(t_stack *stack, int chunk_max);
+int			get_weight_from_pos(t_stack *stack, int pos);
+
+/*
 **	doublons.c
 */
 void		check_doublons(t_stack *stack);
 int			*create_int_array(t_stack *stack, int length);
 int			has_doublons(int *array, int length);
-
-/*
-**	input.c
-*/
 
 /*
 **	exit_management.c
@@ -109,6 +113,33 @@ int			convert_number(char *number, int *status);
 t_stack		*create_stack_from_input(int argc, char **argv, int *status);
 
 /*
+**	sort.c
+*/
+int			move_lowest_ele(t_stack *primary, t_stack *secondary);
+int			move_highest_ele(t_stack *primary, t_stack *secondary);
+int			move_element_at_pos(t_stack *primary, int pos, char stack_name);
+int			solve(t_stack *primary, t_stack *secondary);
+int			is_sorted(t_stack *a_stack);
+
+/*
+**	sort_less_than_five.c
+*/
+int			sort_less_than_five(t_stack *primary, t_stack *secondary);
+int			sort_two(t_stack *primary);
+int			sort_three(t_stack *primary);
+int			sort_four(t_stack *primary, t_stack *secondary);
+int			sort_five(t_stack *primary, t_stack *secondary);
+
+/*
+**	sort_less_than_hundred.c
+*/
+int			sort_hundred(t_stack *primary, t_stack *secondary);
+int			sort_chunk(t_stack *primary, t_stack *secondary, int chunk_max);
+int			prepare_secondary(t_stack *secondary, int value);
+int			find_closest_lower_value_pos(t_stack *stack, int value);
+int			find_highest_value_pos(t_stack *stack);
+
+/*
 **	t_stack.c
 */
 t_stack		*init_stack(void);
@@ -121,6 +152,9 @@ void		free_stack(t_stack *stack);
 **	t_stack_utils.c
 */
 int			get_lowest_ele_pos(t_stack *stack);
+int			get_highest_ele_pos(t_stack *stack);
+int			get_lowest_ele_val(t_stack *stack);
+int			get_highest_ele_val(t_stack *stack);
 
 /*
 **	t_stack_action.c

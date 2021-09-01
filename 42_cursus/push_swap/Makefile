@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/08/06 19:31:30 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/01 21:15:36 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,17 @@ TEST_PREFIX		= test_
 # ====> FILES                                                                  #
 # ---------------------------------------------------------------------------- #
 
-F_SRCS		= parser.c \
+F_SRCS		= chunk.c \
+			  doublons.c \
+			  exit_management.c \
+			  parser.c \
+			  sort.c \
+			  sort_less_than_five.c \
+			  sort_less_than_hundred.c \
 			  t_stack.c \
-			  t_stack_utils.c \
 			  t_stack_action.c \
 			  t_stack_ele.c \
-			  exit_management.c \
-			  doublons.c \
+			  t_stack_utils.c \
 
 F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 

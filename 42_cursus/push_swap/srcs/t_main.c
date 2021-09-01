@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 15:26:38 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/16 15:26:40 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/01 20:43:24 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,24 +290,33 @@ int		main(int argc, char **argv)
 	printf("------------------------\n");
 	t_stack *stack_6 = NULL;
 	char	**argv_1 = NULL;
-	argv_1 = ft_calloc(sizeof(*argv_1), 6);
+	argv_1 = ft_calloc(sizeof(*argv_1), 11);
 	argv_1[0] = ft_strdup("./push_swap");
-	argv_1[1] = ft_strdup("20");
-	argv_1[2] = ft_strdup("-22230");
-	argv_1[3] = ft_strdup("4000000");
-	argv_1[4] = ft_strdup("-50");
-	argv_1[5] = ft_strdup("0");
-	int		argc_1 = 6;
+	argv_1[1] = ft_strdup("0");
+	argv_1[2] = ft_strdup("-1");
+	argv_1[3] = ft_strdup("1");
+	argv_1[4] = ft_strdup("-2");
+	argv_1[5] = ft_strdup("3");
+	argv_1[6] = ft_strdup("-3");
+	argv_1[7] = ft_strdup("-4");
+	argv_1[8] = ft_strdup("2");
+	argv_1[9] = ft_strdup("4");
+	argv_1[10] = ft_strdup("-5");
+	int		argc_1 = 11;
 	int		state_2 = TRUE;
 	stack_6 = create_stack_from_input(argc_1, argv_1, &state_2);
 	if (state_2 == TRUE)
-	{
 		print_stack(stack_6);
-		//free_and_exit_message(stack_6, NULL, "Wrong Input");
-		free_stack(stack_6);
-	}
 
-	while(1){}
+	t_stack *secondary = init_stack();
+	sort_hundred(stack_6, secondary);
+	printf("***\n");
+	print_stack(stack_6);
+	printf("***\n");
+	print_stack(secondary);
+	free_stack(stack_6);
+	free_stack(secondary);
+//	while(1){}
 
 	return (0);
 }
