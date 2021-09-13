@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 15:54:11 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/05 14:10:24 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:32:19 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack_ele	*new_stack_ele(int value)
 	return (node);
 }
 
-void		free_stack_ele(t_stack_ele *stack_ele)
+void	free_stack_ele(t_stack_ele *stack_ele)
 {
 	if (stack_ele != NULL)
 	{

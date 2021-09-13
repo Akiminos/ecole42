@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 16:24:39 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/11 15:31:14 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:48:34 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	get_nb_len(int n)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	if (n < 0)
@@ -27,14 +27,27 @@ static size_t	get_nb_len(int n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+int	get_res_digit(int n)
+{
+	int		digit;
+
+	digit = 0;
+	if (n % 10 < 0)
+		digit = -(n % 10) + 48;
+	else
+		digit = (n % 10) + 48;
+	return (digit);
+}
+
+char	*ft_itoa(int n)
 {
 	size_t	len;
 	size_t	iter;
 	char	*res;
 
 	len = get_nb_len(n);
-	if (!(res = malloc(sizeof(*res) * (len + 1))))
+	res = malloc(sizeof(*res) * (len + 1));
+	if (res == 0)
 		return (0);
 	res[len] = 0;
 	iter = len - 1;
@@ -45,7 +58,7 @@ char			*ft_itoa(int n)
 	}
 	while (len--)
 	{
-		res[iter] = (n % 10 < 0 ? -(n % 10) + 48 : (n % 10) + 48);
+		res[iter] = get_res_digit(n);
 		n /= 10;
 		iter--;
 	}

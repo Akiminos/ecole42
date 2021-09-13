@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:03:03 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/09 18:06:21 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:07:25 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t count;
+	size_t	count;
 
 	if (n == 0)
 		return (0);

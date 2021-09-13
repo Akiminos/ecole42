@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:52:38 by bdruez            #+#    #+#             */
-/*   Updated: 2021/02/17 12:15:30 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:21:37 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 size_t				ft_strlen(const char *s);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -37,7 +37,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
-					size_t len);
+						size_t len);
 int					ft_isspace(int c);
 int					ft_atoi(const char *str);
 void				*ft_memset(void *b, int c, size_t len);
@@ -74,7 +74,7 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+						void (*del)(void *));
 int					ft_min(int nb1, int nb2);
 int					ft_max(int nb1, int nb2);
 

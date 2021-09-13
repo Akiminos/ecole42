@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:21:05 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/13 19:21:06 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:49:52 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	clear_node(t_list *node, void (*del)(void *))
 	}
 }
 
-void		ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	if ((*del))
 	{

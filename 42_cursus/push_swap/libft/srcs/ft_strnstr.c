@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:52:53 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/07 14:55:00 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:12:00 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_check_substr(const char *str, const char *sub_str, size_t pos)
 {
-	size_t iter_str;
-	size_t iter_sub;
+	size_t	iter_str;
+	size_t	iter_sub;
 
 	iter_str = pos;
 	iter_sub = 0;
@@ -32,10 +32,10 @@ static int	ft_check_substr(const char *str, const char *sub_str, size_t pos)
 		return (1);
 }
 
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t iter;
-	size_t needle_len;
+	size_t	iter;
+	size_t	needle_len;
 
 	iter = 0;
 	needle_len = ft_strlen(needle);

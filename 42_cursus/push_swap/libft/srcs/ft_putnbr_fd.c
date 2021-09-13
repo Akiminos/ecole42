@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:57:22 by bdruez            #+#    #+#             */
-/*   Updated: 2019/12/11 14:24:21 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:58:39 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int nbr;
+	long int	nbr;
 
 	nbr = n;
 	if (nbr < 0)

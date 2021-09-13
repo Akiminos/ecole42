@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:57:22 by bdruez            #+#    #+#             */
-/*   Updated: 2019/12/11 13:51:24 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:59:11 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_hex(unsigned long n, int is_upper, int fd)
 		ft_putchar_fd(n + 87, fd);
 }
 
-void		ft_putnbr_hex_fd(unsigned long n, int is_upper, int fd)
+void	ft_putnbr_hex_fd(unsigned long n, int is_upper, int fd)
 {
 	if (n <= 15)
 		print_hex(n, is_upper, fd);

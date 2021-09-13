@@ -6,13 +6,16 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 16:40:37 by bdruez            #+#    #+#             */
-/*   Updated: 2020/01/10 16:49:25 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:57:41 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min(int nb1, int nb2)
+int	ft_min(int nb1, int nb2)
 {
-	return ((nb1 < nb2) ? nb1 : nb2);
+	if (nb1 < nb2)
+		return (nb1);
+	else
+		return (nb2);
 }

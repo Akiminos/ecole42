@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:59:03 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/07 14:05:41 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:26:58 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;
 
-	if ((res = malloc(count * size)) == 0)
+	res = malloc(count * size);
+	if (res == 0)
 		return (0);
 	ft_bzero(res, count * size);
 	return (res);

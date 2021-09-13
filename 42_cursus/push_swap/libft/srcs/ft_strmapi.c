@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:05:33 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/10 17:26:20 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:06:55 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	iter = 0;
 	if (s == 0 || (*f) == 0)
 		return (0);
-	if (!(res = ft_calloc(ft_strlen(s) + 1, sizeof(*res))))
+	res = ft_calloc(ft_strlen(s) + 1, sizeof(*res));
+	if (!res)
 		return (0);
 	while (iter < ft_strlen(s))
 	{

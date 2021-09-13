@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:39:07 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/08 10:21:17 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:05:28 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == 0 || s2 == 0)
 		return (0);
-	if (!(res = ft_calloc(sizeof(*res), ft_strlen(s1) + ft_strlen(s2) + 1)))
+	res = ft_calloc(sizeof(*res), ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
 		return (0);
 	iter = 0;
 	iter_res = 0;

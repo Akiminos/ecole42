@@ -6,13 +6,16 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 16:33:42 by bdruez            #+#    #+#             */
-/*   Updated: 2020/01/10 16:49:01 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:54:47 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_max(int nb1, int nb2)
+int	ft_max(int nb1, int nb2)
 {
-	return ((nb1 > nb2) ? nb1 : nb2);
+	if (nb1 > nb2)
+		return (nb1);
+	else
+		return (nb2);
 }

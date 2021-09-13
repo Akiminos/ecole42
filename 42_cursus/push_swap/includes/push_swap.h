@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:22:36 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/12 17:48:18 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:40:16 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,22 @@ enum			e_instruction
 /*
 **	double linked-list structure element for stack management
 */
-typedef struct	s_stack_ele
+typedef struct s_stack_ele
 {
 	int					value;
 	struct s_stack_ele	*prev;
 	struct s_stack_ele	*next;
-}				t_stack_ele;
+}	t_stack_ele;
 
 /*
 **	double linked-list structure element for stack management
 */
-typedef	struct	s_stack
+typedef struct s_stack
 {
 	int					size;
 	struct s_stack_ele	*head;
 	struct s_stack_ele	*tail;
-}				t_stack;
+}	t_stack;
 
 /*
 ** ----- Function prototypes ---------------------------------------------------
@@ -102,7 +102,7 @@ int			has_doublons(int *array, int length);
 */
 void		free_and_exit(t_stack *stack_a, t_stack *stack_b, int error_code);
 void		free_and_exit_message(t_stack *stack_a, t_stack *stack_b,
-		const char *message);
+				const char *message);
 
 /*
 **	parser.c
@@ -111,6 +111,12 @@ int			is_number(char *number);
 int			ascii_to_int(const char *number, int *status);
 int			convert_number(char *number, int *status);
 t_stack		*create_stack_from_input(int argc, char **argv, int *status);
+
+/*
+**	parser.c
+*/
+void		print_rotate(char stack);
+void		print_reverse_rotate(char stack);
 
 /*
 **	sort.c

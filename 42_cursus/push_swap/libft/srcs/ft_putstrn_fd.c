@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 16:03:00 by bdruez            #+#    #+#             */
-/*   Updated: 2020/01/21 15:30:39 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:00:28 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstrn_fd(char *s, int max, int fd)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (s)

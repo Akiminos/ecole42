@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 17:02:52 by bdruez            #+#    #+#             */
-/*   Updated: 2021/08/31 18:19:39 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:30:24 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		sort_less_than_five(t_stack *primary, t_stack *secondary)
+int	sort_less_than_five(t_stack *primary, t_stack *secondary)
 {
 	if (primary->size == 2)
 		sort_two(primary);
@@ -27,14 +27,14 @@ int		sort_less_than_five(t_stack *primary, t_stack *secondary)
 	return (0);
 }
 
-int		sort_two(t_stack *primary)
+int	sort_two(t_stack *primary)
 {
 	if (primary->head->value > primary->head->next->value)
 		ft_putstr_fd("sa\n", 1);
 	return (0);
 }
 
-int		sort_three(t_stack *primary)
+int	sort_three(t_stack *primary)
 {
 	int		pos;
 
@@ -54,7 +54,7 @@ int		sort_three(t_stack *primary)
 	return (0);
 }
 
-int		sort_four(t_stack *primary, t_stack *secondary)
+int	sort_four(t_stack *primary, t_stack *secondary)
 {
 	move_lowest_ele(primary, secondary);
 	sort_three(primary);
@@ -62,7 +62,7 @@ int		sort_four(t_stack *primary, t_stack *secondary)
 	return (0);
 }
 
-int		sort_five(t_stack *primary, t_stack *secondary)
+int	sort_five(t_stack *primary, t_stack *secondary)
 {
 	move_lowest_ele(primary, secondary);
 	move_lowest_ele(primary, secondary);

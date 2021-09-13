@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:34:53 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/16 16:03:38 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:29:13 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		is_number(char *number)
+int	is_number(char *number)
 {
 	int	is_digit;
 	int	iter;
@@ -40,10 +40,10 @@ int		is_number(char *number)
 	return (TRUE);
 }
 
-int		ascii_to_int(const char *number, int *status)
+int	ascii_to_int(const char *number, int *status)
 {
 	size_t		iter;
-	long long 	res;
+	long long	res;
 	size_t		sign;
 
 	iter = 0;
@@ -67,7 +67,7 @@ int		ascii_to_int(const char *number, int *status)
 	return ((int)res);
 }
 
-int		convert_number(char *number, int *status)
+int	convert_number(char *number, int *status)
 {
 	int	res;
 
@@ -81,9 +81,9 @@ int		convert_number(char *number, int *status)
 	return (res);
 }
 
-t_stack		*create_stack_from_input(int argc, char **argv, int *status)
+t_stack	*create_stack_from_input(int argc, char **argv, int *status)
 {
-	t_stack *stack;
+	t_stack	*stack;
 	int		iter;
 	int		number;
 

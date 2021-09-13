@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 13:54:19 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/12 17:24:51 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:27:27 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_and_exit(t_stack *stack_a, t_stack *stack_b, int error_code)
 }
 
 void	free_and_exit_message(t_stack *stack_a, t_stack *stack_b,
-		const char* message)
+			const char *message)
 {
 	if (stack_a != NULL)
 		free_stack(stack_a);

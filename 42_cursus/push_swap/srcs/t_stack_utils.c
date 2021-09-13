@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 19:14:39 by bdruez            #+#    #+#             */
-/*   Updated: 2021/08/31 20:14:52 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:32:40 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		get_lowest_ele_pos(t_stack *stack)
+int	get_lowest_ele_pos(t_stack *stack)
 {
 	int			pos;
 	int			value;
@@ -38,7 +38,7 @@ int		get_lowest_ele_pos(t_stack *stack)
 	return (pos);
 }
 
-int		get_highest_ele_pos(t_stack *stack)
+int	get_highest_ele_pos(t_stack *stack)
 {
 	int			pos;
 	int			value;
@@ -64,7 +64,7 @@ int		get_highest_ele_pos(t_stack *stack)
 	return (pos);
 }
 
-int		get_lowest_ele_val(t_stack *stack)
+int	get_lowest_ele_val(t_stack *stack)
 {
 	int			value;
 	int			iter;
@@ -87,7 +87,7 @@ int		get_lowest_ele_val(t_stack *stack)
 	return (value);
 }
 
-int		get_highest_ele_val(t_stack *stack)
+int	get_highest_ele_val(t_stack *stack)
 {
 	int			value;
 	int			iter;

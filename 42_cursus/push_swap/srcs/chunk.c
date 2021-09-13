@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 18:55:31 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/01 17:34:10 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:26:26 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		get_chunk_max(t_stack *primary, int size)
+int	get_chunk_max(t_stack *primary, int size)
 {
 	int		max;
 	int		iter;
@@ -27,12 +27,12 @@ int		get_chunk_max(t_stack *primary, int size)
 	return (max);
 }
 
-int		find_value_just_above(t_stack *stack, int current)
+int	find_value_just_above(t_stack *stack, int current)
 {
 	int			result;
 	int			iter;
 	t_stack_ele	*tmp;
-	
+
 	tmp = stack->head;
 	result = current;
 	iter = 0;
@@ -53,13 +53,13 @@ int		find_value_just_above(t_stack *stack, int current)
 	return (result);
 }
 
-int		find_lowest_weight_pos(t_stack *stack, int chunk_max)
+int	find_lowest_weight_pos(t_stack *stack, int chunk_max)
 {
 	int			pos;
 	int			weight;
 	int			res_pos;
 	int			res_weight;
-	t_stack_ele *tmp;
+	t_stack_ele	*tmp;
 
 	pos = 0;
 	weight = 0;
@@ -82,7 +82,7 @@ int		find_lowest_weight_pos(t_stack *stack, int chunk_max)
 	return (res_pos);
 }
 
-int		get_weight_from_pos(t_stack *stack, int pos)
+int	get_weight_from_pos(t_stack *stack, int pos)
 {
 	int		size;
 

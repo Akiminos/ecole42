@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:22:26 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/13 19:22:26 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:53:25 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	while (lst)

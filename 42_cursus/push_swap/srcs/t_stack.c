@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:38:52 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/05 15:07:23 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:31:56 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*init_stack(void)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(*stack));
 	if (!stack)

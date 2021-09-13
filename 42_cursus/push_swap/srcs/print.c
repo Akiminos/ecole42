@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 19:22:08 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/13 20:52:58 by bdruez           ###   ########.fr       */
+/*   Created: 2021/09/13 21:34:32 by bdruez            #+#    #+#             */
+/*   Updated: 2021/09/13 21:39:16 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	print_rotate(char stack)
 {
-	t_list	*node;
+	if (stack == 'a')
+		ft_putstr_fd("ra\n", 1);
+	else
+		ft_putstr_fd("rb\n", 1);
+}
 
-	node = NULL;
-	node = malloc(sizeof(*node));
-	if (!node)
-		return (0);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+void	print_reverse_rotate(char stack)
+{
+	if (stack == 'a')
+		ft_putstr_fd("rra\n", 1);
+	else
+		ft_putstr_fd("rrb\n", 1);
 }

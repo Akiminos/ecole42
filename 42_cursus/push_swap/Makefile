@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/12 17:47:45 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/13 21:40:49 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ F_SRCS		= chunk.c \
 			  doublons.c \
 			  exit_management.c \
 			  parser.c \
+			  print.c \
 			  sort.c \
 			  sort_less_than_five.c \
 			  sort_less_than_hundred.c \

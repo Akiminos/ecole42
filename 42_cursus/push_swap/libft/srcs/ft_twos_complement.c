@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:28:37 by bdruez            #+#    #+#             */
-/*   Updated: 2019/12/09 17:54:55 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:20:20 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_twos_complement(int nb)
+int	ft_twos_complement(int nb)
 {
 	return (~(nb) + 1);
 }

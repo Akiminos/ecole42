@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 16:04:01 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/19 12:00:13 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:26:52 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		check_doublons(t_stack *stack)
+void	check_doublons(t_stack *stack)
 {
 	int		*array;
 	int		bool_has_doublons;
@@ -26,7 +26,7 @@ void		check_doublons(t_stack *stack)
 		free_and_exit_message(stack, NULL, "Input has doublons");
 }
 
-int			*create_int_array(t_stack *stack, int length)
+int	*create_int_array(t_stack *stack, int length)
 {
 	int			*array;
 	int			iter;
@@ -46,7 +46,7 @@ int			*create_int_array(t_stack *stack, int length)
 	return (array);
 }
 
-int			has_doublons(int *array, int length)
+int	has_doublons(int *array, int length)
 {
 	int		tmp;
 	int		iter_array;

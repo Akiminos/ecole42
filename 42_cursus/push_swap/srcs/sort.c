@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:07:17 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/12 17:47:13 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:39:12 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		move_lowest_ele(t_stack *primary, t_stack *secondary)
+int	move_lowest_ele(t_stack *primary, t_stack *secondary)
 {
 	int		pos;
 
@@ -39,7 +39,7 @@ int		move_lowest_ele(t_stack *primary, t_stack *secondary)
 	return (0);
 }
 
-int		move_highest_ele(t_stack *primary, t_stack *secondary)
+int	move_highest_ele(t_stack *primary, t_stack *secondary)
 {
 	int		pos;
 
@@ -66,7 +66,7 @@ int		move_highest_ele(t_stack *primary, t_stack *secondary)
 	return (0);
 }
 
-int		move_element_at_pos(t_stack *stack, int pos, char stack_name)
+int	move_element_at_pos(t_stack *stack, int pos, char stack_name)
 {
 	int		size;
 	int		iter;
@@ -78,7 +78,7 @@ int		move_element_at_pos(t_stack *stack, int pos, char stack_name)
 		while (iter++ < pos)
 		{
 			rotate(stack);
-			ft_putstr_fd(stack_name == 'a' ? "ra\n" : "rb\n", 1);
+			print_rotate(stack_name);
 		}
 	}
 	else
@@ -86,13 +86,13 @@ int		move_element_at_pos(t_stack *stack, int pos, char stack_name)
 		while (iter++ < size - pos)
 		{
 			reverse_rotate(stack);
-			ft_putstr_fd(stack_name == 'a' ? "rra\n" : "rrb\n", 1);
+			print_reverse_rotate(stack_name);
 		}
 	}
 	return (0);
 }
 
-int		solve(t_stack *primary, t_stack *secondary)
+int	solve(t_stack *primary, t_stack *secondary)
 {
 	if (primary->size <= 5)
 		sort_less_than_five(primary, secondary);
@@ -103,7 +103,7 @@ int		solve(t_stack *primary, t_stack *secondary)
 	return (0);
 }
 
-int		is_sorted(t_stack *a_stack)
+int	is_sorted(t_stack *a_stack)
 {
 	int			iter;
 	t_stack_ele	*element;

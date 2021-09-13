@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:20:39 by bdruez            #+#    #+#             */
-/*   Updated: 2019/11/13 19:20:40 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:49:12 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = NULL;
 	if (!*alst)

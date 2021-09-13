@@ -6,13 +6,13 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:45:18 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/12 18:02:15 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/13 21:31:23 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		sort_more_than_hundred(t_stack *primary, t_stack *secondary)
+int	sort_more_than_hundred(t_stack *primary, t_stack *secondary)
 {
 	int		chunk_size;
 
