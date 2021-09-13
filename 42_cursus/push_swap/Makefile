@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/13 21:40:49 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/13 22:43:36 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,7 @@ clean:
 #	@make clean -C $(PATH_TEST)
 
 fclean: clean
-	$(RM) $(NAME) $(BIN)
+	$(RM) $(NAME) $(BIN) run.sh
 	$(RMR) $(NAME).dSYM
 	@make fclean -C $(PATH_LFT)
 #	@make fclean -C $(PATH_TEST)
