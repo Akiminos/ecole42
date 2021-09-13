@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/01 21:15:36 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/12 17:47:45 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ F_SRCS		= chunk.c \
 			  sort.c \
 			  sort_less_than_five.c \
 			  sort_less_than_hundred.c \
+			  sort_more_than_hundred.c \
 			  t_stack.c \
 			  t_stack_action.c \
 			  t_stack_ele.c \

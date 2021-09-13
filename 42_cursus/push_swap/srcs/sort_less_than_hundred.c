@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 17:54:12 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/01 21:24:57 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/12 18:06:55 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		sort_hundred(t_stack *primary, t_stack *secondary)
 {
 	int		chunk_size;
 
-	chunk_size = primary->size / 4;
+	chunk_size = primary->size / 6;
 	while (primary->size > chunk_size)
 		sort_chunk(primary, secondary, get_chunk_max(primary, chunk_size));
 	sort_chunk(primary, secondary, get_chunk_max(primary, primary->size));
@@ -26,6 +26,8 @@ int		sort_hundred(t_stack *primary, t_stack *secondary)
 		push(secondary, primary);
 		ft_putstr_fd("pa\n", 1);
 	}
+	free_stack(primary);
+	free_stack(secondary);
 	return (0);
 }
 
@@ -39,7 +41,7 @@ int		sort_chunk(t_stack *primary, t_stack *secondary, int chunk_max)
 		move_element_at_pos(primary, pos, 'a');
 		prepare_secondary(secondary, primary->head->value);
 		push(primary, secondary);
-		printf("pb\n");
+		ft_putstr_fd("pb\n", 1);
 		if (primary->size > 0)
 			pos = find_lowest_weight_pos(primary, chunk_max);
 	}

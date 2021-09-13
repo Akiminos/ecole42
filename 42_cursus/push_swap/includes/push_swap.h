@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 11:22:36 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/01 20:42:25 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/12 17:48:18 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int			has_doublons(int *array, int length);
 /*
 **	exit_management.c
 */
-void		free_and_exit(t_stack *stack_a, t_stack *stack_b);
+void		free_and_exit(t_stack *stack_a, t_stack *stack_b, int error_code);
 void		free_and_exit_message(t_stack *stack_a, t_stack *stack_b,
 		const char *message);
 
@@ -138,6 +138,11 @@ int			sort_chunk(t_stack *primary, t_stack *secondary, int chunk_max);
 int			prepare_secondary(t_stack *secondary, int value);
 int			find_closest_lower_value_pos(t_stack *stack, int value);
 int			find_highest_value_pos(t_stack *stack);
+
+/*
+**	sort_less_than_hundred.c
+*/
+int			sort_more_than_hundred(t_stack *primary, t_stack *secondary);
 
 /*
 **	t_stack.c

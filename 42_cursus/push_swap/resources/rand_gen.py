@@ -20,5 +20,5 @@ for index, number in enumerate(numbers):
 f.write("\"\n")
 f.write("./push_swap $ARG | wc -l\n")
 #f.write("./push_swap $ARG")
-f.write("./push_swap $ARG | ./checker_linux $ARG\n")
+f.write("./push_swap $ARG | ./checker $ARG\n")
 f.close()

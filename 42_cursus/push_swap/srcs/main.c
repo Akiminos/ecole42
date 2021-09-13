@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 15:24:07 by bdruez            #+#    #+#             */
-/*   Updated: 2021/08/31 17:00:18 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/12 17:34:06 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,16 @@ int		main(int argc, char **argv)
 	status = TRUE;
 	primary = NULL;
 	if (argc <= 1 || argv == NULL)
-		free_and_exit(NULL, NULL);
+		free_and_exit(NULL, NULL, 0);
 	else
 	{
 		primary = create_stack_from_input(argc, argv, &status);
 		if (status == FALSE)
-			free_and_exit(primary, NULL);
-		secondary = init_stack();
+			free_and_exit(primary, NULL, 1);
 		check_doublons(primary);
 		if (is_sorted(primary) == 0)
-		{
-			free_stack(primary);
-			free_stack(secondary);
-			return (0);
-		}
+			free_and_exit(primary, NULL, 0);
+		secondary = init_stack();
 		solve(primary, secondary);
 	}
 	return (0);

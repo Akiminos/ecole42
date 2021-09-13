@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:07:17 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/01 21:39:53 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/12 17:47:13 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int		solve(t_stack *primary, t_stack *secondary)
 {
 	if (primary->size <= 5)
 		sort_less_than_five(primary, secondary);
-	else
+	else if (primary-> size <= 100)
 		sort_hundred(primary, secondary);
-	free_stack(primary);
-	free_stack(secondary);
+	else
+		sort_more_than_hundred(primary, secondary);
 	return (0);
 }
 
