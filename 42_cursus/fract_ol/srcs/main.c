@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:23:27 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/17 00:10:52 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 00:24:57 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@ int	main(int argc, char **argv)
 	parse_args(argc, argv, data);
 	if (init(data) != 0)
 		free_and_exit(&data, "Could not initialize mlx properly", -1);
-	/*
 	draw_image(data);
 	mlx_key_hook(data->p_win, hook_key_pressed, data);
 	mlx_mouse_hook(data->p_win, hook_mouse, data);
 	mlx_loop(data->p_mlx);
-	*/
 	free_data(&data);
 	return (0);
 }
