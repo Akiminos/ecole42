@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 11:22:36 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/13 21:40:16 by bdruez           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 17:35:18 by bdruez            #+#    #+#             */
-/*   Updated: 2021/07/16 16:03:54 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 00:22:40 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +89,6 @@ int			has_doublons(int *array, int length);
 **	exit_management.c
 */
 void		free_and_exit(t_stack *stack_a, t_stack *stack_b, int error_code);
-void		free_and_exit_message(t_stack *stack_a, t_stack *stack_b,
-				const char *message);
 
 /*
 **	parser.c

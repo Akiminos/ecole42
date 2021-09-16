@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 16:04:01 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/13 21:26:52 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 00:22:16 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_doublons(t_stack *stack)
 		free(array);
 	array = NULL;
 	if (bool_has_doublons == TRUE)
-		free_and_exit_message(stack, NULL, "Input has doublons");
+		free_and_exit(stack, NULL, -1);
 }
 
 int	*create_int_array(t_stack *stack, int length)
@@ -36,7 +36,7 @@ int	*create_int_array(t_stack *stack, int length)
 	iter = 0;
 	array = ft_calloc(sizeof(*array), length);
 	if (array == NULL)
-		free_and_exit_message(stack, NULL, "Allocation error");
+		free_and_exit(stack, NULL, -1);
 	while (iter < length)
 	{
 		array[iter] = ele->value;
