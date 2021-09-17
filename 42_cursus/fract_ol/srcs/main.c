@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:23:27 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/17 00:24:57 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 12:15:58 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	init(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = init_data();
 	parse_args(argc, argv, data);
