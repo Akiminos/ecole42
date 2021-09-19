@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 21:04:55 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/17 00:09:46 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/19 23:40:19 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	free_data(t_data **data)
 			delete_view(*data);
 		if ((*data)->p_win != NULL)
 			mlx_destroy_window((*data)->p_mlx, (*data)->p_win);
+		if ((*data)->p_mlx != NULL)
+			mlx_destroy_display((*data)->p_mlx);
 		free((*data)->p_mlx);
 		free(*data);
 	}
