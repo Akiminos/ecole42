@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 21:04:55 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/19 23:40:19 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/19 23:53:21 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_data	*init_data(void)
 {
 	t_data	*data;
-	
+
 	data = ft_calloc(sizeof(t_data), 1);
 	if (data == NULL)
 		return (NULL);

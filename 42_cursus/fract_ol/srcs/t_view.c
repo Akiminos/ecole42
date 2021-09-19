@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:34:34 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/17 00:14:59 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 12:20:31 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_view	*init_view(void)
 {
 	t_view	*view;
-	
+
 	view = ft_calloc(sizeof(t_view), 1);
 	if (view == NULL)
 		return (NULL);

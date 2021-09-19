@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:20:44 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/16 12:24:29 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 12:18:16 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_color	init_color(void)
 {
 	t_color	color;
+
 	color.t = 0;
 	color.r = 0;
 	color.r_prime = 0.0f;

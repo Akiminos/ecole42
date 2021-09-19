@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 21:18:51 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/16 22:25:56 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/17 12:17:49 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_additional_args(int argc, char **argv, t_data *data)
 
 int	parse_args(int argc, char **argv, t_data *data)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	if (argc < 2)

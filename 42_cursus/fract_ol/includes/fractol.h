@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:32:59 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/19 23:45:15 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/19 23:52:52 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 enum e_key_values
 {
 	K_ESC			=	65307,
-	K_ENTER 		=	65293,
+	K_ENTER			=	65293,
 	K_LEFT			=	65361,
 	K_RIGHT			=	65363,
 	K_UP			=	65362,
@@ -79,12 +79,12 @@ typedef struct s_complex
 */
 typedef struct s_color
 {
-	int	t;
-	int	r;
+	int		t;
+	int		r;
 	double	r_prime;
-	int	g;
+	int		g;
 	double	g_prime;
-	int	b;
+	int		b;
 	double	b_prime;
 	double	c;
 	double	x;
@@ -92,7 +92,7 @@ typedef struct s_color
 	double	h;
 	double	s;
 	double	v;
-	int	color;
+	int		color;
 }	t_color;
 
 /*
