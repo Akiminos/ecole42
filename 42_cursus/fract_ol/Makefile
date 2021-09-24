@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/16 22:47:20 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/24 14:46:44 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,12 @@ F_SRCS		= color_convert.c \
 			  exit_management.c \
 			  hook.c \
 			  hsv_to_trgb.c \
-			  image.c \
 			  julia.c \
 			  key_zoom.c \
 			  key_move.c \
 			  mandelbrot.c \
 			  mouse_zoom.c \
 			  parse.c \
-			  pixel.c \
 			  t_color.c \
 			  t_complex.c \
 			  t_data.c \

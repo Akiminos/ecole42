@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 15:52:35 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/16 18:48:09 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/09/24 15:07:03 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_color	mandelbrot_color(int iter)
 		return (color);
 	if (iter < 1)
 		return (color);
-	color.h = 359.0f / (double)iter;
+	color.h = fmod(((double)iter * COLOR_SCALING), 360.0f);
 	hsv_to_trgb(&color);
 	return (color);
 }
