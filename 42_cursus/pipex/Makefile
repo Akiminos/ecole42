@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 11:50:51 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/20 12:58:21 by bdruez           ###   ########.fr        #
+#    Updated: 2021/10/17 20:34:21 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,12 @@ TEST_PREFIX		= test_
 # ====> FILES                                                                  #
 # ---------------------------------------------------------------------------- #
 
-F_SRCS		= create_command.c \
+F_SRCS		= child_subprocess_input.c \
+			  child_subprocess_output.c \
+			  get_paths.c \
+			  open_file_in.c \
+			  open_file_out.c \
+			  pipex.c \
 
 F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 

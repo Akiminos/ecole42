@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_command.c                                   :+:      :+:    :+:   */
+/*   child_subprocess_input.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 12:50:41 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/20 13:00:40 by bdruez           ###   ########.fr       */
+/*   Created: 2021/10/17 16:38:37 by bdruez            #+#    #+#             */
+/*   Updated: 2021/10/17 20:38:43 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*create_command(const char *cmd)
+void	child_subprocess_input(int fd_in, char *cmd, int pipe_array[2])
 {
-	char	*res;
-	int		size;
-
-	size = ft_strlen(cmd) + 6;
-	res = ft_calloc(sizeof(*res), size);
-	if (res == NULL)
-		return (NULL);
-	res[0] = '/';
-	res[1] = 'b';
-	res[2] = 'i';
-	res[3] = 'n';
-	res[4] = '/';
-	res[5] = '\0';
-	ft_strlcat(res, cmd, size);
-	return (res);
+	dup2(fd_in, STDIN_FILENO);
+	dup2(pipe_array[1], STDOUT_FILENO);
+	close(pipe_array[0]);
+	close(fd_in);
+	fprintf(stdout, "IN IN : CMD : %s\n", cmd);
+	exit(EXIT_SUCCESS);
 }
