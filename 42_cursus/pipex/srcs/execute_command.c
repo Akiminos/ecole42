@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:43:32 by bdruez            #+#    #+#             */
-/*   Updated: 2021/10/20 08:56:01 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/10/20 09:26:22 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	***generate_args_array(char *cmd, char **envp)
 	return (args_array);
 }
 
-int		check_command(char ***args_array)
+int	check_command(char ***args_array)
 {
 	int		iter;
 	int		status;
@@ -97,7 +97,7 @@ void	free_args_array(char ****args_array)
 	free(args_array[0]);
 }
 
-int		execute_command(char *cmd, char **envp)
+int	execute_command(char *cmd, char **envp)
 {
 	char	***args_array;
 	int		pos;

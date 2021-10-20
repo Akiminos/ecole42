@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 08:53:54 by bdruez            #+#    #+#             */
-/*   Updated: 2021/10/20 09:06:01 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/10/20 09:26:02 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_cmd_array(char ***cmd_array)
 {
-	int iter;
+	int	iter;
 
 	iter = 0;
 	while (cmd_array != 0 && cmd_array[0] != 0 && cmd_array[0][iter] != 0)
