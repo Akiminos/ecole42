@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 17:29:30 by bdruez            #+#    #+#              #
-#    Updated: 2021/09/24 14:46:44 by bdruez           ###   ########.fr        #
+#    Updated: 2021/09/25 14:01:02 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@
 # ---------------------------------------------------------------------------- #
 
 PATH_SRCS		= ./srcs/
-PATH_INCS		= ./includes/ ./libft/includes/ ./tests/includes/ \
-				  ./minilibx-linux
+PATH_INC_CURR	= ./includes/
+PATH_INCS		= $(PATH_INC_CURR) ./libft/includes/ ./tests/includes/ \
+				  ./minilibx-linux/
 PATH_OBJS		= ./objs/
 PATH_LFT		= ./libft/
 PATH_LMLX		= ./minilibx-linux/
@@ -34,8 +35,8 @@ F_SRCS		= color_convert.c \
 			  hook.c \
 			  hsv_to_trgb.c \
 			  julia.c \
-			  key_zoom.c \
 			  key_move.c \
+			  key_zoom.c \
 			  mandelbrot.c \
 			  mouse_zoom.c \
 			  parse.c \
@@ -46,6 +47,8 @@ F_SRCS		= color_convert.c \
 			  t_view.c \
 			  window.c \
 
+F_INC		= fractol.h \
+
 F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 
 # ---------------------------------------------------------------------------- #
@@ -55,6 +58,9 @@ F_TEST		= $(addprefix $(TEST_PREFIX), $(F_SRCS))
 OBJS		= $(addprefix $(PATH_OBJS), $(F_SRCS:.c=.o))
 OBJS_TEST	= $(addprefix $(PATH_OBJS), $(F_TEST:.c=.o))
 
+INC_CURR	= $(addprefix $(PATH_INC_CURR), $(F_INC))
+INCS		= $(addprefix -I, $(PATH_INCS))
+
 MAIN_BIN	= $(PATH_OBJS)main.o
 T_MAIN_BIN	= $(PATH_OBJS)t_main.o
 
@@ -62,7 +68,6 @@ T_MAIN_BIN	= $(PATH_OBJS)t_main.o
 # ====> COMMANDS AND FLAGS                                                     #
 # ---------------------------------------------------------------------------- #
 
-INCS		= $(addprefix -I, $(PATH_INCS))
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
@@ -90,15 +95,15 @@ NAME		= fractol
 # ---------------------------------------------------------------------------- #
 
 ### Compile rule for .c files in srcs
-$(PATH_OBJS)%.o: $(PATH_SRCS)%.c Makefile
+$(PATH_OBJS)%.o: $(PATH_SRCS)%.c Makefile $(INC_CURR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 ### Compile rule for .c files in tests
-$(PATH_OBJS)%.o: $(PATH_TEST)%.c Makefile
+$(PATH_OBJS)%.o: $(PATH_TEST)%.c Makefile $(INC_CURR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 ### "make" default rule call
-$(NAME): $(PATH_OBJS) $(OBJS) $(MAIN_BIN)
+$(NAME): $(PATH_OBJS) $(OBJS) $(MAIN_BIN) $(INC_CURR)
 	@make -C $(PATH_LFT)
 	@make -C $(PATH_LMLX)
 	$(CC) $(CFLAGS) $(OBJS) $(MAIN_BIN) -o $(NAME) $(LIBS) -lm
@@ -108,7 +113,7 @@ $(PATH_OBJS):
 	@mkdir $(PATH_OBJS)
 
 ### FSanitize compile rule, will need fclean afterwards
-fsan: $(PATH_OBJS) $(OBJS) $(MAIN_BIN)
+fsan: $(PATH_OBJS) $(OBJS) $(MAIN_BIN) $(INC_CURR)
 	@make -C $(PATH_LFT)
 	@make -C $(PATH_LMLX)
 	$(CC) $(CFLAGS) $(FSAN) $(OBJS) $(MAIN_BIN) -o $(NAME) $(LIBS) -lm
@@ -119,7 +124,7 @@ leaks: $(NAME)
 	--show-reachable=yes --track-origins=yes ./$(NAME)
 
 ### Test compilation rule
-# test: $(PATH_OBJS) $(OBJS) $(OBJS_TEST) $(T_MAIN_BIN)
+# test: $(PATH_OBJS) $(OBJS) $(OBJS_TEST) $(T_MAIN_BIN) $(INC_CURR)
 #	@make -C $(PATH_LFT)
 #	@make -C $(PATH_TEST)
 #	$(CC) $(CFLAGS) $(OBJS) $(OBJS_TEST) $(T_MAIN_BIN) -o $(NAME) $(LFTFLAGS) \

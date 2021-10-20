@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 11:52:24 by bdruez            #+#    #+#             */
-/*   Updated: 2021/10/20 06:41:12 by bdruez           ###   ########.fr       */
+/*   Created: 2021/09/25 14:07:28 by bdruez            #+#    #+#             */
+/*   Updated: 2021/09/25 15:15:30 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+int	get_diff(const char s1, const char *s2, size_t len1, size_t len2)
 {
-	int	fd1;
-	int	fd2;
-	int	iter;
-	int	status;
 
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	size_t	iter;
+	int		res;		
+
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (len1 != len2)
+		return (get_diff(s1, s2, len1, len2));
 	iter = 0;
-	status = 1;
-	if (argc == 5)
+	while (iter < len1)
 	{
-		fd1 = open_file_in(argv[1]);
-		fd2 = open_file_out(argv[4]);
-		status = pipex(fd1, fd2, argv, envp);
+		res = (int)s1[iter] - (int)s2[iter];
+		if (res != 0)
+			return (res);
+		iter++;
 	}
-	return (status);
+	return (0);
 }

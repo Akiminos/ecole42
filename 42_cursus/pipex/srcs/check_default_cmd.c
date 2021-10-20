@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   child_subprocess_output.c                          :+:      :+:    :+:   */
+/*   check_default_cmd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 16:41:12 by bdruez            #+#    #+#             */
-/*   Updated: 2021/10/20 06:38:41 by bdruez           ###   ########.fr       */
+/*   Created: 2021/10/20 08:53:54 by bdruez            #+#    #+#             */
+/*   Updated: 2021/10/20 09:06:01 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	child_subprocess_output(int fd_out, char *cmd, int pipe_array[2],
-			char **envp)
+void	free_cmd_array(char ***cmd_array)
 {
-	int	status;
+	int iter;
 
-	status = EXIT_FAILURE;
-	if (fd_out != -1)
-	{
-		dup2(fd_out, STDOUT_FILENO);
-		dup2(pipe_array[0], STDIN_FILENO);
-		close(pipe_array[1]);
-		close(fd_out);
-		status = execute_command(cmd, envp);
-	}
-	exit(status);
+	iter = 0;
+	while (cmd_array != 0 && cmd_array[0] != 0 && cmd_array[0][iter] != 0)
+		free(cmd_array[0][iter++]);
+	free(cmd_array[0]);
+}
+
+int	check_default_cmd(char *cmd, char **envp)
+{
+	char	**cmd_array;
+
+	cmd_array = ft_split(cmd, ' ');
+	if (cmd_array != 0 && access(cmd_array[0], X_OK) == 0)
+		execve(cmd_array[0], cmd_array, envp);
+	free_cmd_array(&cmd_array);
+	return (-1);
 }

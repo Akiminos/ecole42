@@ -6,7 +6,7 @@
 /*   By: bdruez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:09:35 by bdruez            #+#    #+#             */
-/*   Updated: 2021/09/13 21:03:27 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/10/18 18:10:06 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	nb_word = get_nb_word(s, c);
 	curr_word = 0;
-	tab = malloc(sizeof(*tab) * (nb_word + 1));
+	tab = ft_calloc(sizeof(*tab), nb_word + 1);
 	if (!tab)
 		return (0);
 	tab[nb_word] = 0;

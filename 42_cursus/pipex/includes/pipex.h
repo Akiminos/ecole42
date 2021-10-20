@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:45:23 by bdruez            #+#    #+#             */
-/*   Updated: 2021/10/17 20:34:04 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/10/20 09:06:28 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,23 @@
 */
 
 // -------------------------------------------------------------------------- //
-void		child_subprocess_input(int fd_in, char *cmd, int pipe_array[2]);
+int			check_default_cmd(char *cmd, char **envp);
 // -------------------------------------------------------------------------- //
-void		child_subprocess_output(int fd_out, char *cmd, int pipe_array[2]);
+void		child_subprocess_input(int fd_in, char *cmd, int pipe_array[2],
+				char **envp);
 // -------------------------------------------------------------------------- //
-char		**get_paths(char **envp);
+void		child_subprocess_output(int fd_out, char *cmd, int pipe_array[2],
+				char **envp);
+// -------------------------------------------------------------------------- //
+int			execute_command(char *cmd, char **envp);
+// -------------------------------------------------------------------------- //
+char		**get_paths(char *cmd, char **envp);
 // -------------------------------------------------------------------------- //
 int			open_file_in(char *path);
 // -------------------------------------------------------------------------- //
 int			open_file_out(char *path);
 // -------------------------------------------------------------------------- //
-void		pipex(int fd1, int fd2, char **argv, char **envp);
+int			pipex(int fd1, int fd2, char **argv, char **envp);
 // -------------------------------------------------------------------------- //
 
 #endif
