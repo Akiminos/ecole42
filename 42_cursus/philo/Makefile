@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 12:02:20 by bdruez            #+#    #+#              #
-#    Updated: 2021/11/04 14:27:19 by bdruez           ###   ########.fr        #
+#    Updated: 2021/11/04 19:18:06 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,5 +129,5 @@ re: fclean all
 # ====> PHONY DEFINITION                                                       #
 # ---------------------------------------------------------------------------- #
 
-.PHONY: all clean fclean re test leaks
+.PHONY: all clean fclean re test leaks fsan
 
