@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 12:31:19 by bdruez            #+#    #+#             */
-/*   Updated: 2021/11/04 12:34:12 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/11/04 15:34:27 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,9 @@ t_philo	create_philo(int pos, t_info *info)
 
 void	destroy_philo(t_philo *philo)
 {
-	int	left;
-	int	right;
-
-	right = philo->position;
-	if (philo->position == 0)
-		left = philo->info->param.nb_philo - 1;
-	else
-		left = philo->position - 1;
+	pthread_mutex_lock(&(philo->info->mutex));
 	if (philo->is_eating == TRUE)
-	{
-		pthread_mutex_unlock(&philo->info->forks[left].mutex);
-		pthread_mutex_unlock(&philo->info->forks[right].mutex);
-	}
+		unlock_forks(philo);
+	pthread_mutex_unlock(&(philo->info->mutex));
 	pthread_mutex_destroy(&philo->mutex);
 }

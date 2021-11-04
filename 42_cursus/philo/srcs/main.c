@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 12:07:08 by bdruez            #+#    #+#             */
-/*   Updated: 2021/11/04 12:27:02 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/11/04 14:52:08 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	clear_philos(t_philo **philos)
 	if (philos[0] != NULL)
 	{
 		join_philos(philos);
-		destroy_philos(philos);
 		free(philos[0]);
 	}
 }

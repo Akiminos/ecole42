@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:32:31 by bdruez            #+#    #+#             */
-/*   Updated: 2021/11/04 12:49:49 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/11/04 15:32:38 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ int	philo_eat(t_philo *philo)
 		>= philo->info->param.time_to_eat)
 	{
 		pthread_mutex_lock(&philo->info->mutex);
-		pthread_mutex_unlock(&philo->info->forks[pos_left].mutex);
-		pthread_mutex_unlock(&philo->info->forks[pos_right].mutex);
+		unlock_forks(philo);
 		philo->is_eating = FALSE;
 		philo->is_sleeping = TRUE;
 		philo->info->forks[pos_left].is_free = TRUE;
 		philo->info->forks[pos_right].is_free = TRUE;
-		pthread_mutex_unlock(&philo->info->mutex);
 		philo->nb_times_eaten++;
+		pthread_mutex_unlock(&philo->info->mutex);
 		print_sleeping(philo);
 	}
 	return (0);

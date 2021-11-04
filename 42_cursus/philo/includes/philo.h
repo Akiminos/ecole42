@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 12:08:12 by bdruez            #+#    #+#             */
-/*   Updated: 2021/11/04 12:37:58 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/11/04 15:34:46 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define TRUE 0
 # define FALSE 1
 
-# define WAIT_UTIME 100
+# define WAIT_UTIME 500
 
 //----- Enums ----------------------------------------------------------------//
 
@@ -79,6 +79,7 @@ struct timeval	get_time_diff(struct timeval time, struct timeval time_to_sub);
 long int		get_time_diff_milli(struct timeval time,
 					struct timeval time_to_sub);
 //----- lock_forks.c ---------------------------------------------------------//
+int				unlock_forks(t_philo *philo);
 int				lock_forks(t_philo *philo);
 //----- parser.c -------------------------------------------------------------//
 t_param			parse_params(int argc, char **argv);

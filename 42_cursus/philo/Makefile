@@ -6,7 +6,7 @@
 #    By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 12:02:20 by bdruez            #+#    #+#              #
-#    Updated: 2021/11/04 12:37:32 by bdruez           ###   ########.fr        #
+#    Updated: 2021/11/04 14:27:19 by bdruez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ RMR			= rm -rf
 
 LTESTFLAGS	= -L$(PATH_TEST) -ltest
 
-FSAN		= -g3 -fsanitize=address
+FSAN		= -g3 -fsanitize=thread
 
 # ---------------------------------------------------------------------------- #
 # ====> BINARY NAMES                                                           #
