@@ -6,7 +6,7 @@
 /*   By: bdruez <bdruez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 20:37:45 by bdruez            #+#    #+#             */
-/*   Updated: 2021/11/04 15:31:07 by bdruez           ###   ########.fr       */
+/*   Updated: 2021/11/04 17:51:30 by bdruez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	lock_forks(t_philo *philo)
 		pos_left = philo->position - 1;
 	if (philo->position % 2 == 0)
 	{
+		usleep(1000);
 		pthread_mutex_lock(&philo->info->forks[philo->position].mutex);
 		print_fork_taken(philo);
 		pthread_mutex_lock(&philo->info->forks[pos_left].mutex);
